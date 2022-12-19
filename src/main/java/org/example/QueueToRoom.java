@@ -15,11 +15,21 @@ public class QueueToRoom implements Runnable{
     }
     @Override
     public void run() {
+        System.out.println(people.size() + " people in queue");
         while (!people.isEmpty()) {
             if(room.tryGetIn(people.peek())) {
                 Person p = people.poll();
+                assert p != null;
                 p.gettingIn(room);
                 new Thread(p).start();
+                System.out.println(people.size() + " people in queue");
+            }
+            else {
+                try {
+                    this.wait();
+                } catch (InterruptedException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }
