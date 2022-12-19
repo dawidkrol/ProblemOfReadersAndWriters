@@ -1,9 +1,6 @@
 package org.example;
 
 import java.util.concurrent.Semaphore;
-import java.lang.Thread;
-
-import static java.lang.Thread.sleep;
 
 public class ReadingRoom {
     private final Semaphore semaphore;
@@ -18,7 +15,7 @@ public class ReadingRoom {
     public synchronized void getOut(Person p){
         semaphore.release(p.value());
         System.out.println(p.getClass().getSimpleName() + " is getting out, avaliable places: " + availableSlots());
-        this.notify();
+        notifyAll();
     }
 
     public synchronized int availableSlots(){

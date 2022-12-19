@@ -7,7 +7,7 @@ import java.util.concurrent.Semaphore;
 
 public class App 
 {
-    public static void main( String[] args ) throws InterruptedException {
+    public static void main( String[] args ) {
         Semaphore sm = new Semaphore(5);
         ReadingRoom rr = new ReadingRoom(sm);
         QueueToRoom queue = new QueueToRoom(rr);
@@ -20,7 +20,7 @@ public class App
     }
 
     private static List<Person> creatingPeople(int numOfReaders, int numOfWriters) {
-        List<Person> people = new ArrayList<Person>();
+        List<Person> people = new ArrayList<>();
         for (int i = 0; i < numOfReaders; i++){
             people.add(new Reader());
         }

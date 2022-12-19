@@ -1,11 +1,10 @@
 package org.example;
 
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class QueueToRoom implements Runnable{
-    Queue<Person> people = new LinkedList<Person>();
+    Queue<Person> people = new LinkedList<>();
     ReadingRoom room;
     public QueueToRoom(ReadingRoom room){
         this.room = room;
@@ -23,13 +22,6 @@ public class QueueToRoom implements Runnable{
                 p.gettingIn(room);
                 new Thread(p).start();
                 System.out.println(people.size() + " people in queue");
-            }
-            else {
-                try {
-                    this.wait();
-                } catch (InterruptedException e) {
-                    System.out.println(e.getMessage());
-                }
             }
         }
     }
