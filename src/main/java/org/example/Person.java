@@ -18,7 +18,7 @@ public class Person implements Runnable {
     @Override
     public void run() {
         try {
-            int sleepTime = random.nextInt(3000);
+            int sleepTime = random.nextInt(1000,3000);
             System.out.println(this.getClass().getSimpleName() + " will be in " + sleepTime + " sec.");
             sleep(sleepTime);
         } catch (InterruptedException e) {
