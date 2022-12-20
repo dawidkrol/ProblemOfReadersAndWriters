@@ -19,7 +19,7 @@ public class App
         new Thread(queue).start();
     }
 
-    private static List<Person> creatingPeople(int numOfReaders, int numOfWriters) {
+    public static List<Person> creatingPeople(int numOfReaders, int numOfWriters) {
         List<Person> people = new ArrayList<>();
         for (int i = 0; i < numOfReaders; i++){
             people.add(new Reader());

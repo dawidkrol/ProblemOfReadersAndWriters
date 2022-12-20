@@ -28,4 +28,14 @@ class ReadingRoomTest {
         rr.tryGetIn(new Person());
         assertEquals(2,rr.availableSlots());
     }
+
+    @Test
+    void getOut() {
+        Person p = new Person();
+        assertEquals(3,rr.availableSlots());
+        rr.tryGetIn(p);
+        assertEquals(2,rr.availableSlots());
+        rr.getOut(p);
+        assertEquals(3,rr.availableSlots());
+    }
 }
