@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.Random;
+import java.security.SecureRandom;
 
 import static java.lang.Thread.sleep;
 
@@ -9,9 +9,9 @@ import static java.lang.Thread.sleep;
  */
 public abstract class Person implements Runnable {
     int sleepTime;
-    protected Random rnd;
+    protected SecureRandom rnd;
     protected Person(){
-        rnd = new Random();
+        rnd = new SecureRandom();
     }
 
     /**
