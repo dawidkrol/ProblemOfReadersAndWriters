@@ -14,7 +14,7 @@ class PersonTest {
     void beforeEach(){
         Semaphore sm = new Semaphore(3);
         rr = new ReadingRoom(sm);
-        ps = new Person();
+        ps = new Reader();
     }
     @Test
     void value() {
@@ -24,6 +24,6 @@ class PersonTest {
     @Test
     void gettingIn() {
         ps.gettingIn(rr);
-        assertTrue(0 != ps.sleepTime);
+        assertNotEquals(0, ps.sleepTime);
     }
 }

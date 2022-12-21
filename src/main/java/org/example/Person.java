@@ -4,21 +4,37 @@ import java.util.Random;
 
 import static java.lang.Thread.sleep;
 
-public class Person implements Runnable {
+/**
+ * Base class for models which can enter to the reading room
+ */
+public abstract class Person implements Runnable {
     int sleepTime;
     protected Random rnd;
-    public Person(){
+    protected Person(){
         rnd = new Random();
     }
+
+    /**
+     * Returning number of places that is needed to add this person to the room
+     * @return Number of places
+     */
     public int value(){
         return 1;
     }
     protected ReadingRoom room;
-    public Person gettingIn(ReadingRoom room){
+
+    /**
+     * Entering to the room
+     * @param room Room model that person enters
+     */
+    public void gettingIn(ReadingRoom room){
         this.room = room;
         sleepTime = rnd.nextInt(1000,3000);
-        return this;
     }
+
+    /**
+     * A method that simulates a person in a room, the person is in the room for a while and then leaves.
+     */
     @Override
     public void run() {
         try {

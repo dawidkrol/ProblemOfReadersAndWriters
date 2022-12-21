@@ -10,7 +10,7 @@ public class App
     public static void main( String[] args ) {
         Semaphore sm = new Semaphore(5);
         ReadingRoom rr = new ReadingRoom(sm);
-        QueueToRoom queue = new QueueToRoom(rr);
+        QueueForRoom queue = new QueueForRoom(rr);
         int numOfReaders = 10;
         int numOfWriters = 3;
         for (Person p :creatingPeople(numOfReaders, numOfWriters)) {

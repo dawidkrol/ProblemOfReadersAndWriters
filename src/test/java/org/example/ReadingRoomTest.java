@@ -16,22 +16,22 @@ class ReadingRoomTest {
     }
     @Test
     void tryGetIn() {
-        assertTrue(rr.tryGetIn(new Person()));
-        assertTrue(rr.tryGetIn(new Person()));
-        assertTrue(rr.tryGetIn(new Person()));
-        assertFalse(rr.tryGetIn(new Person()));
+        assertTrue(rr.tryGetIn(new Reader()));
+        assertTrue(rr.tryGetIn(new Reader()));
+        assertTrue(rr.tryGetIn(new Reader()));
+        assertFalse(rr.tryGetIn(new Reader()));
     }
 
     @Test
     void availableSlots() {
         assertEquals(3,rr.availableSlots());
-        rr.tryGetIn(new Person());
+        rr.tryGetIn(new Reader());
         assertEquals(2,rr.availableSlots());
     }
 
     @Test
     void getOut() {
-        Person p = new Person();
+        Person p = new Reader();
         assertEquals(3,rr.availableSlots());
         rr.tryGetIn(p);
         assertEquals(2,rr.availableSlots());
